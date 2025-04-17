@@ -1,120 +1,64 @@
-/* style.css - Design sombre et gourmand */
-:root {
-  --main-bg: #0e0e0e;
-  --card-bg: #1b1b1b;
-  --accent: #ffcc70;
-  --text: #f1f1f1;
-  --text-muted: #aaaaaa;
-  --transition: 0.3s ease;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--main-bg);
-  color: var(--text);
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-}
-
-.header {
-  background: #111;
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--accent);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-muted);
-  transition: var(--transition);
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-.content {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.hero {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-}
-
-.section {
-  margin-top: 40px;
-}
-
-.section h2 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.section p {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
-
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-top: 60px;
-  border-top: 1px solid #222;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-}
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+ 
+ body {
+     font-family: 'Quicksand', sans-serif;
+     background: #fffaf5;
+     margin: 0;
+     padding: 0;
+     color: #3e2c23;
+ }
+ 
+ header {
+     background: linear-gradient(90deg, #dba36d, #b86d29);
+     color: white;
+     text-align: center;
+     padding: 40px 20px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+ }
+ 
+ header h1 {
+     margin: 0;
+     font-size: 2.8em;
+ }
+ 
+ nav {
+     margin-top: 15px;
+ }
+ 
+ nav a {
+     margin: 0 12px;
+     text-decoration: none;
+     color: white;
+     font-weight: 600;
+     transition: color 0.3s;
+ }
+ 
+ nav a:hover {
+     color: #ffefd5;
+ }
+ 
+ main {
+     padding: 60px 20px;
+     max-width: 1000px;
+     margin: auto;
+     background: white;
+     border-radius: 12px;
+     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+ }
+ 
+ main img {
+     width: 100%;
+     height: auto;
+     border-radius: 12px;
+     margin-top: 20px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+ }
+ 
+ footer {
+     background-color: #f4e1d2;
+     text-align: center;
+     padding: 20px;
+     color: #5c3d2e;
+     margin-top: 40px;
+ }
