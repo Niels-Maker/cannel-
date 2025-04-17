@@ -5,17 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vidéo promotionnelle - Cannelés</title>
   <style>
-    body {
+    * {
       margin: 0;
-      background-color: #0f0f0f;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
-      color: #f0f0f0;
+      background-color: #0e0e0e;
+      color: #f4f4f4;
       overflow: hidden;
     }
 
+    .bg-animation {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 180, 70, 0.08), transparent 70%),
+                  radial-gradient(circle at 70% 70%, rgba(255, 140, 0, 0.1), transparent 70%);
+      background-size: cover;
+      z-index: 0;
+      animation: moveBg 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
     .wrapper {
-      z-index: 10;
       position: relative;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -25,36 +47,47 @@
       padding: 20px;
     }
 
-    h1 {
-      font-size: 3rem;
+    .intro-title {
+      font-size: 2.8rem;
       color: #ffcc70;
       margin-bottom: 10px;
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: typing 3s steps(30) forwards;
     }
 
-    p {
-      color: #cccccc;
+    @keyframes typing {
+      to {
+        opacity: 1;
+      }
+    }
+
+    p.description {
+      color: #ccc;
       font-size: 1.2rem;
       max-width: 600px;
       margin-bottom: 30px;
     }
 
     .video-container {
+      position: relative;
       background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
       padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(255, 200, 100, 0.15);
       max-width: 800px;
       width: 90%;
-      transition: box-shadow 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .video-container:hover {
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 60px rgba(255, 220, 150, 0.2);
     }
 
     video {
       width: 100%;
       border-radius: 12px;
+      transition: transform 0.3s ease;
     }
 
     .fullscreen-btn {
@@ -72,82 +105,106 @@
       background-color: #555;
     }
 
-    .error-message {
-      margin-top: 10px;
-      color: red;
-      display: none;
-    }
-
     .back-button {
       margin-top: 20px;
       display: inline-block;
       color: #ffcc70;
       text-decoration: none;
       font-size: 1rem;
-      transition: color 0.3s ease;
     }
 
     .back-button:hover {
       color: #fff;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
+    .quote {
+      margin-top: 30px;
+      font-style: italic;
+      color: #aaa;
+      font-size: 1rem;
+      opacity: 0.7;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .bg-animation {
+    .light-spot {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(255, 165, 0, 0.1), transparent 70%),
-                  radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1), transparent 70%);
-      background-size: cover;
-      z-index: 0;
-      animation: moveBg 10s infinite alternate ease-in-out;
+      pointer-events: none;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      transition: top 0.1s, left 0.1s;
     }
 
-    @keyframes moveBg {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
+
   <div class="bg-animation"></div>
+  <div class="light-spot" id="light"></div>
 
   <div class="wrapper">
-    <h1 class="fade-in">Vidéo promotionnelle</h1>
-    <p class="fade-in">Plongez dans l’univers sensoriel des cannelés de Bordeaux. Un instant gourmand entre tradition et passion.</p>
+    <h1 class="intro-title">Vidéo promotionnelle</h1>
+    <p class="description">Plongez dans l’univers sensoriel des cannelés de Bordeaux. Un instant gourmand entre tradition et passion.</p>
 
-    <div class="video-container fade-in">
+    <div class="video-container" id="videoContainer">
       <video id="promoVideo" controls poster="poster.jpg">
         <source src="video.mp4" type="video/mp4">
         Votre navigateur ne prend pas en charge la vidéo.
       </video>
       <button class="fullscreen-btn" onclick="goFullscreen()">Plein écran</button>
-      <div id="error" class="error-message">⚠️ La vidéo n’a pas pu être chargée.</div>
     </div>
 
     <a href="index.html" class="back-button">⬅ Retour au site</a>
+    <div class="quote" id="quoteText"></div>
   </div>
+
+  <audio id="ambiance" loop class="hidden">
+    <source src="ambiance.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     const video = document.getElementById('promoVideo');
-    const errorMsg = document.getElementById('error');
+    const light = document.getElementById('light');
+    const container = document.getElementById('videoContainer');
+    const audio = document.getElementById('ambiance');
+    const quoteText = document.getElementById('quoteText');
 
-    video.onerror = () => {
-      errorMsg.style.display = 'block';
-    };
+    const citations = [
+      "« Un cannelé par jour éloigne la tristesse pour toujours. »",
+      "« Le bonheur a la forme d’un petit gâteau doré. »",
+      "« Croustillant dehors, tendre dedans : comme la vie. »",
+      "« Bordeaux a un trésor sucré : le cannelé. »"
+    ];
+
+    // Citation aléatoire
+    quoteText.textContent = citations[Math.floor(Math.random() * citations.length)];
+
+    // Effet lumière souris
+    document.addEventListener('mousemove', (e) => {
+      light.style.left = `${e.clientX}px`;
+      light.style.top = `${e.clientY}px`;
+    });
+
+    // Mode cinématique
+    video.addEventListener('play', () => {
+      document.querySelector('.description').style.display = 'none';
+      document.querySelector('.intro-title').style.display = 'none';
+      quoteText.style.display = 'none';
+      audio.volume = 0.2;
+      audio.play().catch(() => {}); // certains navigateurs bloquent autoplay
+    });
+
+    video.addEventListener('pause', () => {
+      document.querySelector('.description').style.display = 'block';
+      document.querySelector('.intro-title').style.display = 'block';
+      quoteText.style.display = 'block';
+      audio.pause();
+    });
 
     function goFullscreen() {
       if (video.requestFullscreen) {
@@ -158,13 +215,7 @@
         video.msRequestFullscreen();
       }
     }
-
-    window.onload = () => {
-      const fades = document.querySelectorAll('.fade-in');
-      fades.forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.3}s`;
-      });
-    };
   </script>
 </body>
 </html>
+
