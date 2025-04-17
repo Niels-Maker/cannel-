@@ -16,21 +16,20 @@
       background-color: #0e0e0e;
       color: #f4f4f4;
       overflow: hidden;
+      position: relative;
     }
 
-    .bg-animation {
+    .bg-gradient {
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 180, 70, 0.08), transparent 70%),
-                  radial-gradient(circle at 70% 70%, rgba(255, 140, 0, 0.1), transparent 70%);
-      background-size: cover;
+      background: linear-gradient(120deg, rgba(255, 200, 120, 0.05), rgba(0, 0, 0, 0.9));
       z-index: 0;
-      animation: moveBg 10s infinite alternate ease-in-out;
+      animation: bgMove 20s infinite alternate ease-in-out;
     }
 
-    @keyframes moveBg {
+    @keyframes bgMove {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
     }
@@ -52,14 +51,7 @@
       color: #ffcc70;
       margin-bottom: 10px;
       letter-spacing: 2px;
-      opacity: 0;
-      animation: typing 3s steps(30) forwards;
-    }
-
-    @keyframes typing {
-      to {
-        opacity: 1;
-      }
+      animation: fadeIn 2s ease forwards;
     }
 
     p.description {
@@ -67,31 +59,46 @@
       font-size: 1.2rem;
       max-width: 600px;
       margin-bottom: 30px;
+      animation: fadeIn 2.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .video-container {
-      position: relative;
-      background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+      opacity: 0;
+      transform: scale(0.9);
+      animation: videoAppear 1.5s ease 1s forwards;
+      background: linear-gradient(145deg, #1f1f1f, #292929);
       padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255, 200, 100, 0.15);
+      box-shadow: 0 0 40px rgba(255, 200, 100, 0.1);
       max-width: 800px;
       width: 90%;
-      transition: all 0.3s ease-in-out;
     }
 
-    .video-container:hover {
-      box-shadow: 0 0 60px rgba(255, 220, 150, 0.2);
+    @keyframes videoAppear {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     video {
       width: 100%;
       border-radius: 12px;
-      transition: transform 0.3s ease;
     }
 
-    .fullscreen-btn {
+    .buttons {
       margin-top: 15px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn {
       background-color: #333;
       color: #fff;
       border: none;
@@ -101,7 +108,7 @@
       transition: background 0.3s ease;
     }
 
-    .fullscreen-btn:hover {
+    .btn:hover {
       background-color: #555;
     }
 
@@ -124,28 +131,11 @@
       font-size: 1rem;
       opacity: 0.7;
     }
-
-    .light-spot {
-      position: absolute;
-      pointer-events: none;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      transition: top 0.1s, left 0.1s;
-    }
-
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
 
-  <div class="bg-animation"></div>
-  <div class="light-spot" id="light"></div>
+  <div class="bg-gradient"></div>
 
   <div class="wrapper">
     <h1 class="intro-title">Vidéo promotionnelle</h1>
@@ -156,23 +146,25 @@
         <source src="video.mp4" type="video/mp4">
         Votre navigateur ne prend pas en charge la vidéo.
       </video>
-      <button class="fullscreen-btn" onclick="goFullscreen()">Plein écran</button>
+      <div class="buttons">
+        <button class="btn" onclick="goFullscreen()">Plein écran</button>
+        <button class="btn" id="toggleAudio">Son Ambiance 🔇</button>
+      </div>
     </div>
 
     <a href="index.html" class="back-button">⬅ Retour au site</a>
     <div class="quote" id="quoteText"></div>
   </div>
 
-  <audio id="ambiance" loop class="hidden">
+  <audio id="ambiance" loop>
     <source src="ambiance.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const video = document.getElementById('promoVideo');
-    const light = document.getElementById('light');
-    const container = document.getElementById('videoContainer');
     const audio = document.getElementById('ambiance');
     const quoteText = document.getElementById('quoteText');
+    const toggleAudioBtn = document.getElementById('toggleAudio');
 
     const citations = [
       "« Un cannelé par jour éloigne la tristesse pour toujours. »",
@@ -184,19 +176,13 @@
     // Citation aléatoire
     quoteText.textContent = citations[Math.floor(Math.random() * citations.length)];
 
-    // Effet lumière souris
-    document.addEventListener('mousemove', (e) => {
-      light.style.left = `${e.clientX}px`;
-      light.style.top = `${e.clientY}px`;
-    });
-
-    // Mode cinématique
+    // Mode cinéma
     video.addEventListener('play', () => {
       document.querySelector('.description').style.display = 'none';
       document.querySelector('.intro-title').style.display = 'none';
       quoteText.style.display = 'none';
       audio.volume = 0.2;
-      audio.play().catch(() => {}); // certains navigateurs bloquent autoplay
+      if (!audio.muted) audio.play().catch(() => {});
     });
 
     video.addEventListener('pause', () => {
@@ -215,7 +201,15 @@
         video.msRequestFullscreen();
       }
     }
+
+    // Son ambiance toggle
+    toggleAudioBtn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      toggleAudioBtn.textContent = audio.muted ? 'Son Ambiance 🔇' : 'Son Ambiance 🔊';
+      if (!audio.paused && !audio.muted) {
+        audio.play();
+      }
+    });
   </script>
 </body>
 </html>
-
