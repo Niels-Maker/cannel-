@@ -4,7 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adresses</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #121212;
+            color: #f0eae2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #8b5e3c, #3e2c23);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd7a0;
+        }
+
+        main {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        main img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #2d2d2d;
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,19 +85,33 @@
     <main>
         <h2>Adresses</h2>
         <p>
-Les meilleurs lieux pour déguster des cannelés à Bordeaux<br><br>
-Bordeaux regorge de pâtisseries et boutiques spécialisées qui subliment le cannelé. Voici quelques incontournables :<br><br>
-- <strong>Baillardran :</strong> l’institution. Présente dans toute la ville, cette enseigne offre une cuisson impeccable et une pâte onctueuse.<br>
-- <strong>La Toque Cuivrée :</strong> réputée pour son excellent rapport qualité-prix et des cannelés croustillants à souhait.<br>
-- <strong>Maison Lemoine :</strong> artisanale et raffinée, cette maison familiale propose des cannelés de grande qualité.<br>
-- <strong>Michel's Bakery :</strong> pour une version moderne du cannelé, revisitée avec des saveurs originales comme caramel au beurre salé ou citron yuzu.<br>
-- <strong>Marché des Capucins :</strong> de nombreux producteurs y proposent des cannelés faits maison, souvent encore tièdes !<br><br>
-<strong>Conseil :</strong> dégustez-les tièdes, avec un bon café ou un verre de vin moelleux de la région !
-<img src="adresse.jpg" alt="Illustration - adresses"></p>
+            Les meilleurs lieux pour déguster des cannelés à Bordeaux<br><br>
+            Bordeaux regorge de pâtisseries et boutiques spécialisées qui subliment le cannelé. Voici quelques incontournables :<br><br>
+            - <strong>Baillardran :</strong> l’institution. Présente dans toute la ville, cette enseigne offre une cuisson impeccable et une pâte onctueuse.<br>
+            - <strong>La Toque Cuivrée :</strong> réputée pour son excellent rapport qualité-prix et des cannelés croustillants à souhait.<br>
+            - <strong>Maison Lemoine :</strong> artisanale et raffinée, cette maison familiale propose des cannelés de grande qualité.<br>
+            - <strong>Michel's Bakery :</strong> pour une version moderne du cannelé, revisitée avec des saveurs originales comme caramel au beurre salé ou citron yuzu.<br>
+            - <strong>Marché des Capucins :</strong> de nombreux producteurs y proposent des cannelés faits maison, souvent encore tièdes !<br><br>
+            <strong>Conseil :</strong> dégustez-les tièdes, avec un bon café ou un verre de vin moelleux de la région !
+            <img src="adresse.jpg" alt="Illustration - adresses">
+        </p>
     </main>
     <footer>
         &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseover', () => {
+                    link.style.color = '#ffa45c';
+                });
+                link.addEventListener('mouseout', () => {
+                    link.style.color = 'white';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
