@@ -4,7 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histoire</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #121212;
+            color: #f0eae2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #8b5e3c, #3e2c23);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd7a0;
+        }
+
+        main {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        main img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #2d2d2d;
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,15 +85,28 @@
     <main>
         <h2>Histoire</h2>
         <p>
-Une histoire gourmande et mystérieuse<br><br>
-Le cannelé puise ses origines au XVIIIe siècle, dans les couvents bordelais. À cette époque, les vignerons bordelais utilisaient le blanc d'œuf pour clarifier le vin, laissant les jaunes inutilisés. Les religieuses les récupéraient pour confectionner des gâteaux simples, cuits dans de petits moules cannelés en cuivre : le cannelé était né.<br><br>
-Mais ce n’est qu’au XXe siècle que la recette est perfectionnée et que le nom "Canelé de Bordeaux" devient emblématique. C’est la maison Baillardran, dans les années 1980, qui remet la pâtisserie au goût du jour, avec une recette affinée et une cuisson maîtrisée à la seconde près.<br><br>
-Le cannelé est désormais protégé par une confrérie et bénéficie d’une reconnaissance internationale, tout en restant profondément enraciné dans la culture bordelaise.
-<img src="OIP.jpg" alt="Illustration - histoire"></p>
+            Une histoire gourmande et mystérieuse<br><br>
+            Le cannelé puise ses origines au XVIIIe siècle, dans les couvents bordelais. À cette époque, les vignerons bordelais utilisaient le blanc d'œuf pour clarifier le vin, laissant les jaunes inutilisés. Les religieuses les récupéraient pour confectionner des gâteaux simples, cuits dans de petits moules cannelés en cuivre : le cannelé était né.<br><br>
+            Mais ce n’est qu’au XXe siècle que la recette est perfectionnée et que le nom "Canelé de Bordeaux" devient emblématique. C’est la maison Baillardran, dans les années 1980, qui remet la pâtisserie au goût du jour, avec une recette affinée et une cuisson maîtrisée à la seconde près.<br><br>
+            Le cannelé est désormais protégé par une confrérie et bénéficie d’une reconnaissance internationale, tout en restant profondément enraciné dans la culture bordelaise.
+            <img src="OIP.jpg" alt="Illustration - histoire">
+        </p>
     </main>
     <footer>
         &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseover', () => {
+                    link.style.color = '#ffa45c';
+                });
+                link.addEventListener('mouseout', () => {
+                    link.style.color = 'white';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
