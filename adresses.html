@@ -5,70 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adresses</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: #121212;
-            color: #f0eae2;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #1e1e1e;
+      color: #fefefe;
+    }
 
-        header {
-            background: linear-gradient(90deg, #8b5e3c, #3e2c23);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    header {
+      background: linear-gradient(90deg, #a16428, #6b3e1d);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-        }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #fff;
+    }
 
-        nav {
-            margin-top: 15px;
-        }
+    nav {
+      margin-top: 1rem;
+    }
 
-        nav a {
-            margin: 0 12px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+    nav a {
+      text-decoration: none;
+      color: #f5deb3;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: #ffd7a0;
-        }
+    nav a:hover {
+      color: #fff7e0;
+    }
 
-        main {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: #2c2c2c;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
 
-        main img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+    main h2 {
+      color: #ffcc99;
+      border-bottom: 2px solid #a16428;
+      padding-bottom: 0.5rem;
+    }
 
-        footer {
-            background-color: #2d2d2d;
-            text-align: center;
-            padding: 20px;
-            color: #ccc;
-            margin-top: 40px;
-        }
-    </style>
+    main p {
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    main img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      background: #2c2c2c;
+      color: #999;
+      padding: 1.5rem;
+      border-top: 1px solid #444;
+    }
+
+    /* Ajouts graphiques modernisés */
+    .animated-line {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #ffcc99, #a16428);
+      margin: 1rem auto;
+      border-radius: 50px;
+      animation: slide 2s infinite alternate;
+    }
+
+    @keyframes slide {
+      from { transform: translateX(-10px); }
+      to { transform: translateX(10px); }
+    }
+
+    /* Citation en bas */
+    .quote {
+      margin-top: 3rem;
+      font-style: italic;
+      text-align: center;
+      color: #bbbbbb;
+      border-left: 3px solid #a16428;
+      padding-left: 1rem;
+    }
+  </style>
 </head>
 <body>
     <header>
@@ -99,19 +133,16 @@
     <footer>
         &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('mouseover', () => {
-                    link.style.color = '#ffa45c';
-                });
-                link.addEventListener('mouseout', () => {
-                    link.style.color = 'white';
-                });
-            });
-        });
-    </script>
+     <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('mouseover', () => {
+        link.style.color = '#ffd28a';
+      });
+      link.addEventListener('mouseout', () => {
+        link.style.color = '#f5deb3';
+      });
+    });
+  </script>
 </body>
 </html>
 
