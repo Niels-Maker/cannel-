@@ -1,49 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recette</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Recette de Cannelés</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f1ec;
+      color: #333;
+    }
+    header, footer {
+      background-color: #40210f;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #40210f;
+    }
+    ul, ol {
+      margin-left: 1em;
+    }
+    button {
+      background-color: #8c4a27;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #6e3a1f;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Cannelés de Bordeaux</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="histoire.html">Histoire</a>
-            <a href="recette.html">Recette</a>
-            <a href="variantes.html">Variantes</a>
-            <a href="adresses.html">Adresses</a>
-            <a href="video.html">Vidéo promotionnelle</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Recette</h2>
-        <p>
-Recette traditionnelle du cannelé de Bordeaux<br><br>
-Voici la recette classique pour environ 20 cannelés :<br><br>
-<strong>Ingrédients :</strong><br>
-- 500 ml de lait entier<br>
-- 2 œufs entiers + 2 jaunes<br>
-- 50 g de beurre + un peu pour les moules<br>
-- 200 g de sucre<br>
-- 100 g de farine<br>
-- 1 gousse de vanille<br>
-- 3 c. à soupe de rhum<br><br>
-<strong>Préparation :</strong><br>
-1. Faites chauffer le lait avec la gousse de vanille fendue et le beurre. Laissez infuser.<br>
-2. Dans un saladier, fouettez les œufs avec le sucre, ajoutez la farine, puis incorporez le lait tiédi sans cesser de remuer.<br>
-3. Ajoutez le rhum, laissez reposer la pâte 24 à 48 h au réfrigérateur.<br>
-4. Préchauffez le four à 240°C. Beurrez les moules (de préférence en cuivre).<br>
-5. Remplissez-les aux 3/4 et enfournez 10 min à 240°C, puis 50 min à 180°C.<br>
-6. Laissez refroidir avant de démouler.<br><br>
-<strong>Astuce :</strong> une cuisson bien maîtrisée donne une croûte caramélisée et un intérieur bien moelleux !
-<img src="histoire1.jpg" alt="Illustration - recette"></p>
-    </main>
-    <footer>
-        &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
-    </footer>
-    <script src="script.js"></script>
+  <header>
+    <h1>Cannelés Maison</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="recette.html">Recette</a>
+      <a href="variantes.html">Variantes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Recette de base</h2>
+    <p>Voici la recette traditionnelle des cannelés bordelais :</p>
+    <ul>
+      <li>500 ml de lait</li>
+      <li>2 œufs + 2 jaunes</li>
+      <li>200 g de sucre</li>
+      <li>100 g de farine</li>
+      <li>50 g de beurre</li>
+      <li>2 cuillères à soupe de rhum</li>
+      <li>1 gousse de vanille</li>
+    </ul>
+
+    <h2>Préparation</h2>
+    <ol>
+      <li>Faire chauffer le lait avec la gousse de vanille et le beurre.</li>
+      <li>Mélanger les œufs avec le sucre, ajouter la farine, puis le lait tiède.</li>
+      <li>Incorporer le rhum et laisser reposer la pâte 24h au frais.</li>
+      <li>Préchauffer le four à 250°C, verser la pâte dans les moules beurrés.</li>
+      <li>Cuire 10 min à 250°C puis 50 min à 180°C.</li>
+    </ol>
+
+    <button onclick="alert('Astuce : utilisez des moules en cuivre pour un meilleur résultat !')">
+      Astuce de chef
+    </button>
+  </main>
+
+  <footer>
+    &copy; 2025 Cannelés Maison. Tous droits réservés.
+  </footer>
 </body>
 </html>
