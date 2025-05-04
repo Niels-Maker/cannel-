@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Affiche Publicitaire</title>
+  <title>Publicité - Cannelés de Bordeaux</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
@@ -11,12 +11,29 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
       background-color: #1e1e1e;
-      color: #fff;
+      color: #fefefe;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ffcc99;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #cccccc;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
 
     .carousel {
@@ -58,15 +75,33 @@
     .back-link:hover {
       color: #fff7e0;
     }
+
+    footer {
+      margin-top: 3rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Publicité Savoureuse</h1>
+    <div class="subtitle">
+      Découvrez les affiches et brochures <strong>exclusives</strong> des Cannelés de Bordeaux.<br>
+      Du croustillant, du moelleux, et un zeste d’humour sucré pour faire fondre petits et grands ! 🍮
+    </div>
+  </header>
+
   <div class="carousel">
     <img src="affiche.png" class="active" alt="Affiche publicitaire Cannelés" />
     <img src="brochure.png" alt="Brochure promotionnelle Cannelés" />
   </div>
 
   <a class="back-link" href="index.html">← Retour au site</a>
+
+  <footer>
+    &copy; 2025 Cannelés Bordeaux. Affiches certifiées 100% sans calories numériques.
+  </footer>
 
   <script>
     const images = document.querySelectorAll('.carousel img');
@@ -80,3 +115,4 @@
   </script>
 </body>
 </html>
+
