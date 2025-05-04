@@ -216,6 +216,20 @@
         audio.play();
       }
     });
+
+    const ambientToggle = document.getElementById('ambientToggle');
+    const ambientSound = document.getElementById('ambientSound');
+
+    ambientToggle.addEventListener('change', () => {
+      if (ambientToggle.checked) {
+        ambientSound.volume = 0.5;
+        ambientSound.play();
+      } else {
+        ambientSound.pause();
+        ambientSound.currentTime = 0;
+      }
+    });
   </script>
+  
 </body>
 </html>
