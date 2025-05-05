@@ -128,6 +128,11 @@
     </p>
     <img src="accueil1.jpg" alt="Illustration - accueil">
     <div class="quote">« Le cannelé, c’est l’élégance de Bordeaux dans un seul petit gâteau. »</div>
+
+    <!-- Zone de l’easter egg -->
+<div id="easter-egg" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; overflow: hidden; text-align: center;"></div>
+<audio id="hero-music" src="avengers.mp3"></audio> <!-- Remplace avec ton propre fichier -->
+
   </main>
   <footer>
     &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
@@ -141,6 +146,78 @@
         link.style.color = '#f5deb3';
       });
     });
+
+    const easterEggContainer = document.getElementById('easter-egg');
+  const audio = document.getElementById('hero-music');
+  let triggered = false;
+
+  // 🌩️ Animation cannelés
+  function launchCannelavengers() {
+    if (triggered) return;
+    triggered = true;
+    easterEggContainer.style.display = 'block';
+
+    // Musique
+    audio.volume = 0.7;
+    audio.play().catch(() => {}); // silencieux si bloqué
+
+    // Ajout cannelés animés
+    for (let i = 0; i < 30; i++) {
+      const cannele = document.createElement('img');
+      cannele.src = 'cann.png'; // image PNG de cannelé à fournir
+      cannele.style.position = 'absolute';
+      cannele.style.top = `${Math.random() * -100}px`;
+      cannele.style.left = `${Math.random() * 100}%`;
+      cannele.style.width = '40px';
+      cannele.style.zIndex = 10000;
+      cannele.style.animation = `fall ${3 + Math.random() * 2}s ease-in infinite`;
+      easterEggContainer.appendChild(cannele);
+    }
+
+    // Ajout du message central
+    const msg = document.createElement('div');
+    msg.innerHTML = "🌀 <strong style='font-size:2rem;color:#ffd700;text-shadow:0 0 10px #fff;'>Croustillant. Légendaire.<br>Tu es digne du cannelé suprême.</strong>";
+    msg.style.marginTop = '30vh';
+    msg.style.color = '#fff';
+    msg.style.fontSize = '1.2rem';
+    msg.style.animation = 'fadeIn 2s ease-out';
+    easterEggContainer.appendChild(msg);
+  }
+
+  // 🎮 Konami code (PC)
+  const konami = [38,38,40,40,37,39,37,39,66,65];
+  let keyLog = [];
+  document.addEventListener('keydown', (e) => {
+    keyLog.push(e.keyCode);
+    keyLog = keyLog.slice(-konami.length);
+    if (JSON.stringify(keyLog) === JSON.stringify(konami)) {
+      launchCannelavengers();
+    }
+  });
+
+  // 📱 Tap sur logo (Mobile)
+  let tapCount = 0;
+  const logo = document.querySelector('header h1');
+  logo.addEventListener('click', () => {
+    tapCount++;
+    if (tapCount >= 5) {
+      launchCannelavengers();
+    }
+    setTimeout(() => tapCount = 0, 1000);
+  });
+
+  // 🌧️ Animations CSS
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
   </script>
 </body>
 </html>
