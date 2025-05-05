@@ -151,30 +151,29 @@
   const audio = document.getElementById('hero-music');
   let triggered = false;
 
-  // 🌩️ Animation cannelés
   function launchCannelavengers() {
     if (triggered) return;
     triggered = true;
+
+    // Affiche le conteneur
     easterEggContainer.style.display = 'block';
-
-    // Musique
     audio.volume = 0.7;
-    audio.play().catch(() => {}); // silencieux si bloqué
+    audio.play().catch(() => {});
 
-    // Ajout cannelés animés
+    // Pluie de cannelés
     for (let i = 0; i < 30; i++) {
       const cannele = document.createElement('img');
-      cannele.src = 'cann.png'; // image PNG de cannelé à fournir
+      cannele.src = 'cann.png';
       cannele.style.position = 'absolute';
       cannele.style.top = `${Math.random() * -100}px`;
       cannele.style.left = `${Math.random() * 100}%`;
       cannele.style.width = '40px';
       cannele.style.zIndex = 10000;
-      cannele.style.animation = `fall ${3 + Math.random() * 2}s ease-in infinite`;
+      cannele.style.animation = `fall ${3 + Math.random() * 2}s ease-in forwards`;
       easterEggContainer.appendChild(cannele);
     }
 
-    // Ajout du message central
+    // Message
     const msg = document.createElement('div');
     msg.innerHTML = "🌀 <strong style='font-size:2rem;color:#ffd700;text-shadow:0 0 10px #fff;'>Croustillant. Légendaire.<br>Tu es digne du cannelé suprême.</strong>";
     msg.style.marginTop = '30vh';
@@ -182,9 +181,27 @@
     msg.style.fontSize = '1.2rem';
     msg.style.animation = 'fadeIn 2s ease-out';
     easterEggContainer.appendChild(msg);
+
+    // Apparition du cannelé d’or après 4s
+    setTimeout(() => {
+      const goldCanele = document.createElement('img');
+      goldCanele.src = 'OR.png'; // ← ajoute ton image de cannelé doré ici
+      goldCanele.alt = "Cannelé d'or";
+      goldCanele.style.width = '180px';
+      goldCanele.style.marginTop = '40px';
+      goldCanele.style.animation = 'pop 0.8s ease-out';
+      easterEggContainer.appendChild(goldCanele);
+    }, 4000);
+
+    // Fermeture automatique après 8s
+    setTimeout(() => {
+      easterEggContainer.style.display = 'none';
+      audio.pause();
+      audio.currentTime = 0;
+    }, 8000);
   }
 
-  // 🎮 Konami code (PC)
+  // Konami code
   const konami = [38,38,40,40,37,39,37,39,66,65];
   let keyLog = [];
   document.addEventListener('keydown', (e) => {
@@ -195,18 +212,20 @@
     }
   });
 
-  // 📱 Tap sur logo (Mobile)
+  // Tap sur logo mobile
   let tapCount = 0;
   const logo = document.querySelector('header h1');
-  logo.addEventListener('click', () => {
-    tapCount++;
-    if (tapCount >= 5) {
-      launchCannelavengers();
-    }
-    setTimeout(() => tapCount = 0, 1000);
-  });
+  if (logo) {
+    logo.addEventListener('click', () => {
+      tapCount++;
+      if (tapCount >= 5) {
+        launchCannelavengers();
+      }
+      setTimeout(() => tapCount = 0, 1000);
+    });
+  }
 
-  // 🌧️ Animations CSS
+  // Styles animations
   const style = document.createElement('style');
   style.innerHTML = `
     @keyframes fall {
@@ -215,6 +234,11 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
     }
   `;
   document.head.appendChild(style);
