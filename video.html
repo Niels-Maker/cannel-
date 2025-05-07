@@ -134,21 +134,21 @@
 
     .ribbon {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  background-color: rgba(255, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 4rem;
+  background-color: rgba(255, 0, 0, 0.85);
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 1rem 3rem;
-  z-index: 9999;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  line-height: 4rem;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  transform-origin: top left;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   pointer-events: none;
-  border-radius: 10px;
-}
-
 }
 
     @keyframes pulse {
