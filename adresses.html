@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assistant.css">
+    <script src="assistant.js" defer></script>
     <title>Adresses</title>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
@@ -151,6 +153,24 @@
     <footer>
         &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
     </footer>
+    <!-- Mascotte cannelé -->
+<div id="cannel-assistant" title="Besoin d'aide ?"></div>
+
+<div id="assistant-bubble">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h4>Bonjour, je suis Canely !</h4>
+    <span id="assistant-close" style="cursor: pointer; font-weight: bold;">❌</span>
+  </div>
+
+  <div class="assistant-options">
+    <button id="option-degustation">🍽 Conseils</button>
+    <button id="option-site">📘 À propos</button>
+    <button id="option-fun">😂 Blague</button>
+  </div>
+
+  <div id="assistant-response"></div>
+</div>
+
      <script>
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('mouseover', () => {
