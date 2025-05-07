@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('option-site').addEventListener('click', () => {
     showResponse(`
-Ce site a été réalisé dans le cadre du cours d'Histoire au <strong>lycée Pontus de Tyard</strong>, à Chalon-sur-Saône.
+<p>Ce site a été réalisé dans le cadre du cours d'Histoire au <strong>lycée Pontus de Tyard</strong>, à Chalon-sur-Saône.
 Il a été conçu par <strong>Niels Béarnais-Barbry</strong> pour présenter l’histoire, la tradition, et les déclinaisons modernes du cannelé de Bordeaux de manière interactive et ludique.</p>
     `);
   });
