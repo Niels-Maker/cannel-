@@ -102,7 +102,21 @@
       border-left: 3px solid #a16428;
       padding-left: 1rem;
     }
-  </style>
+</style>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Style personnalisé -->
+<style>
+  #map {
+    height: 500px;
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+</style>
+
 </head>
 <body>
     <header>
@@ -127,6 +141,11 @@
             - <strong>Maison Lemoine :</strong> artisanale et raffinée, cette maison familiale propose des cannelés de grande qualité.<br>
             - <strong>Michel's Bakery :</strong> pour une version moderne du cannelé, revisitée avec des saveurs originales comme caramel au beurre salé ou citron yuzu.<br>
             - <strong>Marché des Capucins :</strong> de nombreux producteurs y proposent des cannelés faits maison, souvent encore tièdes !<br><br>
+            <section>
+  <h2>📍 Où acheter des cannelés ?</h2>
+  <div id="map"></div>
+</section>
+
             <strong>Conseil :</strong> dégustez-les tièdes, avec un bon café ou un verre de vin moelleux de la région !
             <img src="adresse.jpg" alt="Illustration - adresses">
         </p>
@@ -143,7 +162,13 @@
         link.style.color = '#f5deb3';
       });
     });
+
   </script>
+    <!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Script de la carte -->
+<script src="map.js" defer></script>
+
 </body>
 </html>
 
