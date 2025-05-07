@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('option-site').addEventListener('click', () => {
     showResponse(`
-      Ce site est une création passionnée autour du cannelé bordelais. 🍮
-      Il a été conçu par un amoureux de la pâtisserie et du web (un certain maître du sucre... sucrément génial 😄).
-      Tu y trouveras animations, infos croustillantes, et une carte des meilleurs spots bordelais !
+Ce site a été réalisé dans le cadre du cours d'Histoire au lycée Pontus de Tyard,
+à Chalon-sur-Saône. Il a été conçu par Niels Béarnais-Barbry pour présenter l’histoire,
+la tradition, et les déclinaisons modernes du cannelé de Bordeaux de manière interactive et ludique.
     `);
   });
 
