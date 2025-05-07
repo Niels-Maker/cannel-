@@ -1,0 +1,71 @@
+/* assistant.css */
+#cannel-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background-image: url('cannelé-mascotte.png'); /* <-- Remplace par ton image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  animation: bounceHead 3s infinite ease-in-out;
+  z-index: 1000;
+}
+
+@keyframes bounceHead {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-6px) rotate(-3deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-4px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+#assistant-bubble {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 250px;
+  background: #2c2c2c;
+  color: #fff4dc;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  font-family: 'Quicksand', sans-serif;
+  z-index: 1001;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#assistant-bubble h4 {
+  margin-top: 0;
+  color: #ffcc99;
+  font-size: 1.2rem;
+}
+
+.assistant-options button {
+  background-color: #a16428;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  margin: 5px 4px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.assistant-options button:hover {
+  background-color: #c98e4f;
+}
+
+#assistant-response {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
