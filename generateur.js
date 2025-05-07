@@ -19,3 +19,4 @@ document.getElementById("canneleForm").addEventListener("submit", function(e) {
   document.getElementById("illustration").textContent = illustration[taille] || "🟤";
   document.getElementById("description").innerHTML = `<strong>${nom}</strong><br>${description}`;
 });
+
