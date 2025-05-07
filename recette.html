@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="generateur.css">
   <title>Cannelés de Bordeaux</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
@@ -139,6 +140,48 @@
       <li>Cuire 10 min à 250°C puis 50 min à 180°C.</li>
     </ol>
     <img src="histoire1.jpg" alt="Illustration - recette">
+    
+    <section id="generateur" class="generateur-cannele">
+  <h2>🎨 Crée ton cannelé parfait !</h2>
+
+  <form id="canneleForm">
+    <label for="taille">Taille :</label>
+    <select id="taille" required>
+      <option value="mini">Mini</option>
+      <option value="moyen" selected>Moyen</option>
+      <option value="maxi">Maxi</option>
+    </select>
+
+    <label for="gout">Goût :</label>
+    <select id="gout" required>
+      <option value="rhum" selected>Rhum</option>
+      <option value="chocolat">Chocolat</option>
+      <option value="pistache">Pistache</option>
+      <option value="fleur">Fleur d’oranger</option>
+    </select>
+
+    <label for="cuisson">Cuisson :</label>
+    <select id="cuisson" required>
+      <option value="moelleux">Moelleux</option>
+      <option value="caramelise" selected>Caramélisé</option>
+      <option value="croquant">Croquant</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="vegan">
+      Option vegan 🌱
+    </label>
+
+    <button type="submit">👨‍🍳 Générer</button>
+  </form>
+
+  <div id="ficheResultat" class="fiche-cannele" style="display: none;">
+    <h3>🧾 Voici ton cannelé !</h3>
+    <div id="illustration"></div>
+    <p id="description"></p>
+  </div>
+</section>
+
   </main>
   <footer>
     &copy; 2025 Cannelés Bordeaux. Tous droits réservés.
@@ -153,5 +196,6 @@
       });
     });
   </script>
+  <script src="generateur.js" defer></script>
 </body>
 </html>
