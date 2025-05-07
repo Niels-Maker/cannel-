@@ -147,6 +147,16 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   padding: 10px 0;
 }
+
+    @keyframes pulse {
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.05); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+.ribbon {
+  animation: pulse 2s infinite;
+}
+
   </style>
 </head>
 <body>
