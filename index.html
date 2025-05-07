@@ -213,17 +213,19 @@
   });
 
   // Tap sur logo mobile
-  let tapCount = 0;
-  const logo = document.querySelector('header h1');
-  if (logo) {
-    logo.addEventListener('click', () => {
-      tapCount++;
-      if (tapCount >= 5) {
-        launchCannelavengers();
-      }
-      setTimeout(() => tapCount = 0, 1000);
-    });
+  // Tap 5 fois n’importe où sur l’écran pour mobile
+let tapCount = 0;
+let tapTimer = null;
+
+document.addEventListener('touchstart', () => {
+  tapCount++;
+  if (tapCount >= 5) {
+    launchCannelavengers();
   }
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => tapCount = 0, 1000); // Reset après 1s
+}, { passive: true });
+
 
   // Styles animations
   const style = document.createElement('style');
