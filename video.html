@@ -132,47 +132,31 @@
       opacity: 0.7;
     }
 
-    @keyframes slideFadeIn {
-  0% {
-    opacity: 0;
-    transform: rotate(-45deg) translate(-80%, -80%);
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(-45deg) translate(-50%, -50%);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
-  }
-}
-
     .ribbon {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 4rem;
-  background: linear-gradient(45deg, rgba(255,0,0,0.9), rgba(139,0,0,0.95));
-  color: white;
-  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 3rem;
   font-weight: bold;
-  text-align: center;
-  line-height: 4rem;
-  transform: rotate(-45deg) translate(-50%, -50%);
-  transform-origin: top left;
-  z-index: 9999;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.8);
+  padding: 1rem 3rem;
+  z-index: 99999;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   pointer-events: none;
-  text-shadow: 1px 1px 2px black;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-  animation:
-    pulse-glow 2s infinite ease-in-out,
-    slideFadeIn 1.2s ease-out 0.2s both;
+  text-align: center;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Animation pour donner un petit effet */
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.05);
+  }
 }
 
 }
